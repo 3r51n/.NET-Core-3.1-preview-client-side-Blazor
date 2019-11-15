@@ -1,0 +1,2 @@
+<td><a class="btn btn-success btn-sm" @onclick="@(() => ShowEdit(item.StudentId))">edit</a></td>
+<td><a class="btn btn-danger btn-sm" @onclick="@(() => ShowDelete(item.StudentId))">del</a></td> 

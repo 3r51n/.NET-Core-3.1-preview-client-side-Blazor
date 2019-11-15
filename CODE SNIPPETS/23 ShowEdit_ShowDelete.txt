@@ -1,0 +1,18 @@
+
+protected async Task ShowEdit(string id) {
+  s = await httpClient.GetJsonAsync<Student>($"{baseUrl}api/students/{id}");
+  student.StudentId = s.StudentId;
+  student.FirstName = s.FirstName;
+  student.LastName = s.LastName;
+  student.School = s.School;
+  mode = MODE.Edit;
+}
+
+protected async Task ShowDelete(string id) {
+  s = await httpClient.GetJsonAsync<Student>($"{baseUrl}api/students/{id}");
+  student.StudentId = s.StudentId;
+  student.FirstName = s.FirstName;
+  student.LastName = s.LastName;
+  student.School = s.School;
+  mode = MODE.Delete;
+}

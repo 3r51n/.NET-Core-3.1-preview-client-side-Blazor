@@ -1,0 +1,6 @@
+// Add Cors
+services.AddCors(o => o.AddPolicy("Policy", builder => {
+  builder.AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader();
+}));

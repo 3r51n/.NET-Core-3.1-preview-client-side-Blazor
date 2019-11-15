@@ -1,0 +1,1 @@
+dotnet-ef migrations add M1 -c SchoolDbContext -o Data/Migrations

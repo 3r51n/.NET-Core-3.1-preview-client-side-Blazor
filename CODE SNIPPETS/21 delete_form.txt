@@ -1,0 +1,24 @@
+@if (students != null && mode == MODE.Delete) // Delete form
+{
+<EditForm Model="@student" OnValidSubmit="@HandleDelete">
+  <DataAnnotationsValidator />
+  <ValidationSummary />
+
+  <InputText placeholder="First Name" id="firstName" @bind-Value="@student.FirstName" />
+  <br />
+  <InputText placeholder="Last Name" id="lastName" @bind-Value="@student.LastName" />
+  <br />
+  <InputText placeholder="School" id="school" @bind-Value="@student.School" />
+  <br />
+  <button type="submit" value="Delete" class="btn btn-danger">Submit</button>
+
+  @code {
+    protected async void HandleDelete() {
+      string endpoint = $"{baseUrl}api/students/{student.StudentId}";
+      await httpClient.SendJsonAsync(HttpMethod.Delete, endpoint, null);
+      await load();
+      mode = MODE.None;
+    }
+  }
+</EditForm>
+}
