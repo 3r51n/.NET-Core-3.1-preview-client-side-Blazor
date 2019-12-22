@@ -140,6 +140,7 @@ else
     protected async Task load()
     {
         students = await httpClient.GetJsonAsync<Student[]>($"{baseUrl}api/students");
+        StateHasChanged();
     }
 
     protected void Add()
